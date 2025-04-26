@@ -11,7 +11,7 @@ export default async function handler(req, res) {
     return res.status(405).send('Sadece POST isteklerine izin veriliyor.');
   }
 
-  const webhookUrl = 'https://discord.com/api/webhooks/WEBHOOK_ID/WEBHOOK_TOKEN'; // BURAYA kendi webhook'unu yaz
+  const webhookUrl = 'https://discord.com/api/webhooks/1365641719181479946/2hBBZAU7XDtoMiEjv0v3nOeRP5H2KHetDpNR0FdYLlGq4OuOjLD-7JVfOVquz7NPbvWq'; // BURAYA kendi webhook'unu yaz
 
   try {
     const forward = await fetch(webhookUrl, {
