@@ -9,7 +9,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'IP address not provided.' });
   }
 
-  const apiKey = 'BURAYA_KENDİ_IPQUALITYSCORE_API_KEYİNİ_YAZ';
+  const apiKey = 'XCkWPdabPg8stIapqVEchzNZQyzHLiIa';
 
   try {
     const response = await fetch(`https://ipqualityscore.com/api/json/ip/${apiKey}/${ip}`);
