@@ -12,7 +12,7 @@ export default async function handler(req, res) {
   const apiKey = 'k46fz7-c22tv1-5o7998-87k52s';
 
   try {
-    const response = await fetch(`http://proxycheck.io/v2/37${ip}?key=${apiKey}&vpn=3&asn=1&cur=0&risk=1`);
+    const response = await fetch(`http://proxycheck.io/v2/${ip}?key=${apiKey}&vpn=3&asn=1&cur=0&risk=1`);
     const data = await response.json();
 
     res.status(200).json(data);
