@@ -4,14 +4,14 @@ export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   if (req.method === 'OPTIONS') {
-    return res.status(200).end(); // Preflight isteğine cevap ver
+    return res.status(200).end(); 
   }
 
   if (req.method !== 'POST') {
-    return res.status(405).send('Sadece POST isteklerine izin veriliyor.');
+    return res.status(405).send('WHAT ARE YOU DOING HERE?');
   }
 
-  const webhookUrl = 'https://discord.com/api/webhooks/1365641719181479946/2hBBZAU7XDtoMiEjv0v3nOeRP5H2KHetDpNR0FdYLlGq4OuOjLD-7JVfOVquz7NPbvWq'; // BURAYA kendi webhook'unu yaz
+  const webhookUrl = 'https://api.telegram.org/bot7904868022:AAGJ-6-V669RdFO137jkKMNy0ZbtcAyXjfU/sendMessage'; 
 
   try {
     const forward = await fetch(webhookUrl, {
@@ -23,12 +23,12 @@ export default async function handler(req, res) {
     });
 
     if (!forward.ok) {
-      throw new Error('Discord Webhook isteği başarısız oldu.');
+      throw new Error('Telegram bot gave an error.');
     }
 
-    return res.status(200).json({ message: 'Başarıyla iletildi.' });
+    return res.status(200).json({ message: 'Successfully sent!' });
   } catch (error) {
     console.error('Webhook forwarding error:', error);
-    return res.status(500).json({ message: 'Bir hata oluştu.' });
+    return res.status(500).json({ message: 'An error happened.' });
   }
 }
