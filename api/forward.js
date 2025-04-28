@@ -19,7 +19,11 @@ export default async function handler(req, res) {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(req.body)
+      body: JSON.stringify({
+        chat_id: "-1002579794170",
+        text: req.text,
+        parse_mode: "Markdown"
+      })
     });
 
     if (!forward.ok) {
