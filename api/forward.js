@@ -11,7 +11,7 @@ export default async function handler(req, res) {
     return res.status(405).send('WHAT ARE YOU DOING HERE?');
   }
 
-  const webhookUrl = 'https://api.telegram.org/bot7904868022:AAGJ-6-V669RdFO137jkKMNy0ZbtcAyXjfU/sendMessage'; 
+  const webhookUrl = 'https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage'; 
 
   try {
     const forward = await fetch(webhookUrl, {
@@ -20,7 +20,7 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        chat_id: "-1002579794170",
+        chat_id: process.env.TELEGRAM_CHAT_ID,
         text: req.body.text,
         parse_mode: "Markdown"
       })
